@@ -26,7 +26,7 @@ SECRET_KEY = 'iv!79yc)=6!!@x296mra83)zi1)#!#@*042dyx)xl_=#t$=2pl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['passwogen.herokuapp.com','127.0.0.1','0.0.0.0']
 
 
 # Application definition
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'password_generator.urls'
@@ -77,12 +78,15 @@ WSGI_APPLICATION = 'password_generator.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd92oudiqtg9l12',
+        'HOST': 'ec2-107-20-15-85.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'ylkedmehmrqtvd',
+        'PASSWORD': '0ce359950926139cf2be794e0cc4e361aa990baacbae8007a1cb504637cdfd24'
+
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
